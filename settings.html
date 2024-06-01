@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task Buddy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./stylesheets/base.css" />
+    <link rel="stylesheet" href="./stylesheets/settings.css" />
+  </head>
+
+  <body>
+    <header>
+      <h1>Task Buddy</h1>
+    </header>
+
+    <main>
+      <div class="buttons-container">
+        <a href="todo.html"><span class="back-text">← Back</span></a>
+
+        <form id="logout-form" method="post">
+          <button type="button" id="logout-button">Log Out</button>
+        </form>
+        <form id="delete-form" method="post" action="delete.php">
+          <button type="button" id="delete-button">Delete Account</button>
+        </form>
+      </div>
+    </main>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        document
+          .getElementById("delete-button")
+          .addEventListener("click", function (e) {
+            e.preventDefault();
+            console.log("Delete button clicked");
+            if (
+              confirm(
+                "Are you sure you want to delete your account? This action cannot be undone. ☹️"
+              )
+            ) {
+              deleteAccount();
+            }
+          });
+
+        function deleteAccount() {
+          var xhr = new XMLHttpRequest();
+          xhr.onreadystatechange = function () {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+              if (xhr.status === 200) {
+                if (xhr.responseText.includes("Success")) {
+                  alert(
+                    "Account deleted successfully. We're sorry to see you go :("
+                  );
+                  window.location.href = "login.html";
+                } else {
+                  alert("Failed to delete account. Please try again.");
+                }
+              } else {
+                console.error("Error deleting account.");
+              }
+            }
+          };
+
+          xhr.open("POST", "delete.php", true);
+          xhr.send();
+        }
+        document
+          .getElementById("logout-button")
+          .addEventListener("click", (e) => {
+            e.preventDefault();
+            logOut();
+          });
+
+        function logOut() {
+          var xhr = new XMLHttpRequest();
+          xhr.onreadystatechange = function () {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+              if (xhr.status === 200) {
+                if (xhr.responseText.includes("Success")) {
+                  alert("You've been logged out!");
+                  window.location.href = "login.html";
+                } else {
+                  alert(
+                    "Failed to logout. Please try again." + xhr.responseText
+                  );
+                }
+              } else {
+              }
+            }
+          };
+          xhr.open("POST", "logout.php", true);
+          xhr.send();
+        }
+      });
+    </script>
+  </body>
+</html>

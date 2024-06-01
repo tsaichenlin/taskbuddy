@@ -1,0 +1,68 @@
+/* Existing styles */
+body {
+  background-color: var(--darkgrey);
+  margin: 2rem;
+}
+
+main {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+.back-text {
+  color: white;
+}
+.buttons-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.buttons-container button {
+  padding: 12px 85px;
+  border-radius: 22px;
+  border: none;
+  font-size: 17px;
+  cursor: pointer;
+  display: block;
+  width: 100%;
+}
+
+.buttons-container button:nth-child(1) {
+  background-color: white;
+  color: black;
+}
+
+.buttons-container button:nth-child(2) {
+  background-color: red;
+  color: white;
+}
+
+.buttons-container button:hover {
+  background-color: #333;
+}
+
+header h1 {
+  color: white;
+}
+
+#logout-button {
+  background-color: white;
+}
+#logout-button:hover {
+  background-color: var(--yellowBG);
+}
+
+#delete-button {
+  margin-top: 1rem;
+  background-color: rgb(255, 100, 100);
+  color: white;
+}
+
+#delete-button:hover {
+  background-color: red;
+}

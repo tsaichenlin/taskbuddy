@@ -1,0 +1,33 @@
+body {
+  font-family: "Nunito", sans-serif;
+  --darkgrey: #23262c;
+  --yellowBG: #ffecb3;
+  --pinkBG: #ffe2f5;
+  --greenBG: #d9f3f3;
+  --yellowText: #ffbf00;
+  --greenText: #3fcaca;
+  --pinkText: #ff0fac;
+  margin: 0;
+}
+
+::selection {
+  background-color: var(--darkgrey);
+  color: white;
+}
+
+input:focus {
+  outline: 2px solid var(--darkgrey);
+}
+button {
+  padding: 0.8rem 3rem;
+  border: none;
+  border-radius: 30px;
+}
+
+header h1 {
+  font-size: 1.5rem;
+}
+
+a {
+  text-decoration: none;
+}

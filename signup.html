@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task Buddy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./stylesheets/base.css" />
+    <link rel="stylesheet" href="./stylesheets/signin.css" />
+  </head>
+
+  <body>
+    <header>
+      <h1>Task Buddy</h1>
+    </header>
+    <main>
+      <h1 id="loginpage">Sign Up</h1>
+      <p style="margin: 0; font-weight: bold">
+        Start managing your tasks today with Task Buddy!
+      </p>
+      <form id="register-form" class="input-container" method="post">
+        <input
+          type="text"
+          name="username"
+          placeholder="Username"
+          required
+          autocomplete="off"
+        />
+        <input
+          type="text"
+          name="name"
+          placeholder="Name"
+          required
+          autocomplete="off"
+        />
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          required
+          autocomplete="off"
+        />
+        <input
+          type="password"
+          name="password2"
+          placeholder="Confirm Password"
+          required
+          autocomplete="off"
+        />
+        <button id="signup-container" type="submit">Sign Up</button>
+      </form>
+
+      <div class="forgot-container">
+        <a href="login.html"
+          ><button type="button">
+            Already have an account? Login Here!
+          </button></a
+        >
+      </div>
+    </main>
+    <script>
+      document
+        .getElementById("register-form")
+        .addEventListener("submit", (e) => {
+          e.preventDefault();
+          var form = document.getElementById("register-form");
+          var formData = new FormData(form);
+
+          var xhr = new XMLHttpRequest();
+          xhr.onreadystatechange = function () {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+              if (xhr.status === 200) {
+                if (
+                  xhr.responseText.includes("User registered successfully!")
+                ) {
+                  console.log("Successful Login!");
+                  window.location.href = "index.html";
+                } else if (
+                  xhr.responseText.includes("Username Already Exist")
+                ) {
+                  alert("Username already exist.");
+                  console.log("Username already exist.");
+                  form.reset();
+                }
+              } else {
+                console.log("Fail to Sign up");
+              }
+            }
+          };
+
+          xhr.open("POST", "register.php", true);
+          xhr.send(formData);
+        });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,76 @@
+body {
+  background-color: var(--yellowBG);
+  margin: 2rem;
+}
+
+main {
+  text-align: center;
+  margin-top: 15vh;
+}
+
+#loginpage {
+  font-size: 3rem;
+  margin-bottom: 0;
+  margin-top: 0;
+  text-align: center;
+}
+
+.input-container {
+  margin-top: 5vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+input,
+.btn {
+  width: 28%;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  margin: 5px 0;
+  opacity: 0.85;
+  display: block;
+  font-size: 17px;
+  line-height: 20px;
+  text-decoration: none;
+  text-align: center;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+button {
+  margin-top: 5vh;
+  background-color: black;
+  color: white;
+  padding: 12px 85px;
+  border-radius: 22px;
+  border: none;
+  font-size: 17px;
+  cursor: pointer;
+  display: inline-block;
+  width: 30%;
+}
+
+button:hover {
+  background-color: #333;
+}
+
+.forgot-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.forgot-container button {
+  background: none;
+  color: #000000;
+  border: none;
+  padding: 0;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.forgot-container button:hover {
+  color: #333;
+}

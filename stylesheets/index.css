@@ -1,0 +1,79 @@
+body {
+  background-color: var(--yellowBG);
+  margin: 2rem;
+}
+
+main {
+  text-align: center;
+  margin-top: 15vh;
+}
+
+#greeting {
+  font-size: 3rem;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+h2 {
+  font-weight: normal;
+}
+
+button {
+  margin-top: 5vh;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  background-color: #ffffff;
+  padding: 0.8rem 4rem;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--darkgrey);
+  color: var(--yellowBG);
+}
+
+#time-icon {
+  width: 10rem;
+  animation: movement 3s ease-in-out infinite;
+}
+
+@keyframes movement {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  25% {
+    transform: translateY(-20px);
+  }
+
+  50% {
+    transform: translateY(0);
+  }
+
+  75% {
+    transform: translateY(-20px);
+  }
+}
+
+/*
+#moods-selection img:hover {
+  cursor: pointer;
+  scale: 1.2;
+}
+*/
+
+#moods-selection img.enlarged {
+  transform: scale(1.5);
+  transition: transform 0.3s ease-in-out;
+}
+
+.mood-img:hover {
+  transform: scale(1.2);
+}
+
+.enlarged {
+  transform: scale(1.5);
+  transition: transform 0.3s ease-in-out;
+}
